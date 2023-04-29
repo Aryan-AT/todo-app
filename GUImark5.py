@@ -1,10 +1,10 @@
-import mark5_functions
+from mytodoapp import mark5_functions
 import PySimpleGUI as sg
 import time
 import os
 
-if not os.path.exists('todos.txt'):
-    with open("todos.txt", 'w') as file:
+if not os.path.exists('mytodoapp/todos.txt'):
+    with open("mytodoapp/todos.txt", 'w') as file:
         pass
 
 sg.theme("Black")

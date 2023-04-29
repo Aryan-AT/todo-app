@@ -1,20 +1,29 @@
 import PySimpleGUI as sg
-import coding.ex_function
 
-label1 = sg.Text("Enter feet: ")
-input1 = sg.Input(key="feet")
 
-label2 = sg.Text("Enter inches: ")
-input2 = sg.Input(key="inches")
+def km_to_miles(km):
+    return km / 1.6
 
-button = sg.Button("Convert")
 
-window = sg.Window("Converter", layout=[[label1,input1],[label2,input2], [button]])
+label = sg.Text("Kilometers: ")
+input_box = sg.InputText(tooltip="Enter todo", key="kms")
+miles_button = sg.Button("Convert")
+
+output = sg.Text(key="output")
+
+
+window = sg.Window('Km to Miles Converter',
+                   layout=[[label, input_box], [miles_button, output]],
+                   font=('Helvetica', 20))
 
 while True:
     event, values = window.read()
-    print(event)
-    print(values)
+    match event:
+        case "Convert":
+            km = values["kms"]
+            result = km_to_miles(float(km))
+            window['output'].update(value=result)
+        case sg.WIN_CLOSED:
+            break
 
-window.read()
 window.close()

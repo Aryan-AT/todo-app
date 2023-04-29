@@ -1,15 +1,20 @@
 import PySimpleGUI as sg
+import coding.ex_function
 
-label = sg.Text("What are dolphins?")
-option1 = sg.Radio("Amphibians", group_id="question1")
-option2 = sg.Radio("Fish", group_id="question1")
-option3 = sg.Radio("Mammals", group_id="question1")
-option4 = sg.Radio("Birds", group_id="question1")
+label1 = sg.Text("Enter feet: ")
+input1 = sg.Input(key="feet")
 
-window = sg.Window("File Compressor",
-                   layout=[[label],
-                           [option1, option2, option3, option4],
-                           ])
+label2 = sg.Text("Enter inches: ")
+input2 = sg.Input(key="inches")
+
+button = sg.Button("Convert")
+
+window = sg.Window("Converter", layout=[[label1,input1],[label2,input2], [button]])
+
+while True:
+    event, values = window.read()
+    print(event)
+    print(values)
 
 window.read()
 window.close()

@@ -16,7 +16,6 @@ col1, col2, col3 = st.columns(3)
 data = pandas.read_csv("004 data.csv")
 topics = pandas.read_csv("004 topics.csv")
 
-
 with col1:
     for index, row in data[:4].iterrows():
         st.header(f'{row["first name"].title()} {row["last name"].title()}')
